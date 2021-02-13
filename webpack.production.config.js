@@ -1,8 +1,9 @@
-const { BADRESP } = require('dns')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require("path")
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
 
 module.exports = {
+    mode: 'production',
     context: path.join(__dirname, "src"),
     resolve: {
         extensions: [".js", ".ts", ".tsx"]
@@ -10,17 +11,8 @@ module.exports = {
     entry: ["@babel/polyfill", "./index.tsx"],
     output: {
         path: path.join(__dirname, "dist"),
+        publicPath: '/',
         filename: "bundle.js"
-    },
-    devtool: "source-map",
-    devServer: {
-        contentBase: "./dist",
-        inline: true,
-        host: "localhost",
-        port: 8080,
-        stats: "errors-only",
-        hot: true,
-        open: true,
     },
     module: {
         rules: [
@@ -48,6 +40,10 @@ module.exports = {
             filename: "index.html",
             template: "index.html",
             hash: true
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+            },
         })
     ]
 }

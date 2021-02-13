@@ -3,16 +3,21 @@
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "declaration": false,
-    "noImplicitAny": true,
     "removeComments": false,
     "jsx": "react",
     "sourceMap": true,
-    "noLib": false,
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
   "compileOnSave": false,
   "include": [

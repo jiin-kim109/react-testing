@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-const App: FunctionComponent<{}> = () => (
+const App: FunctionComponent = () => (
   <div>
     <h2>React setup</h2>
   </div>
