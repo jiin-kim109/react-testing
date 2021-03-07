@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.production.config.js",
     "start": "concurrently \"webpack serve --config ./webpack.development.config.js\" \"npm run lint:fix\"",
-    "test": "jest --watch",
+    "test": "jest",
     "lint": "eslint src/**",
     "lint:fix": "eslint --fix src/**",
     "prettier": "prettier src/**"
