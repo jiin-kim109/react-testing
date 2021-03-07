@@ -11,19 +11,19 @@ const App: FunctionComponent = () => {
   return (
     <div>
       <button 
+        type="button"
         style={{backgroundColor: disabled ? 'gray' : buttonColor}} 
         onClick={() => setButtonColor('blue')}
         disabled={disabled}
       >
-Change to
-{buttonColor === 'red' ? 'Blue' : 'Red'}
+        Change to {buttonColor === 'red' ? 'Blue' : 'Red'}
       </button>
+      <label htmlFor="disable-button-checkbox">Disable button</label>
       <input 
         type="checkbox"
         id="disable-button-checkbox"
         onChange={(e) => setDisabled(e.target.checked)}
       />
-      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div> 
   )
 }
