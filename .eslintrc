@@ -1,7 +1,9 @@
 {
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "jest-dom",
+        "testing-library"
     ],
     "extends": [
         "airbnb",
@@ -9,7 +11,10 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:prettier/recommended",
-        "plugin:jsx-a11y/recommended"
+        "plugin:jsx-a11y/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/recommended",
+        "plugin:testing-library/react"
     ],
     "rules": {
         "prettier/prettier": 0,

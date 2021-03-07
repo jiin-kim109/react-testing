@@ -14,7 +14,10 @@ const App: FunctionComponent = () => {
         style={{backgroundColor: disabled ? 'gray' : buttonColor}} 
         onClick={() => setButtonColor('blue')}
         disabled={disabled}
-      >Change to {buttonColor === 'red' ? 'Blue' : 'Red'}</button>
+      >
+Change to
+{buttonColor === 'red' ? 'Blue' : 'Red'}
+      </button>
       <input 
         type="checkbox"
         id="disable-button-checkbox"

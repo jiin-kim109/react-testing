@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
-import App from './App';
-import { replaceCamelWithSpaces } from './App';
+import App, { replaceCamelWithSpaces } from './App';
+
 
 // unit testing
 test('button has correct initial color', () => {
@@ -20,7 +20,7 @@ test('button turns blue when clicked', () => {
     const colorButton = screen.getByRole('button', { name: 'Change to Blue'});
     fireEvent.click(colorButton);
     expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
-    expect(colorButton.textContent).toBe('Change to Red'); 
+    expect(colorButton).toHaveTextContent('Change to Red'); 
 });
 
 test('initial conditions', () => {
