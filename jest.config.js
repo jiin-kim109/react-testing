@@ -8,12 +8,13 @@ module.exports = {
     transform: {
       "^.+\\.tsx?$": "ts-jest"
     },
-  
+
     // Runs special logic, such as cleaning up components
     // when using React Testing Library and adds special
     // extended assertions to Jest
     setupFilesAfterEnv: [
-      "@testing-library/jest-dom/extend-expect"
+      "@testing-library/jest-dom/extend-expect",
+      "./src/setupTest.ts"
     ],
   
     // Test spec file resolution pattern
