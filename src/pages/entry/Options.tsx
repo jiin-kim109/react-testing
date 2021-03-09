@@ -4,6 +4,8 @@ import { Alert, Row } from 'react-bootstrap';
 import ScoopOption from './ScoopOption';
 import ToppingOption from './ToppingOption';
 import AlertBanner from '../common/AlertBanner';
+import { pricePerItem } from '../../constants';
+import { useOrderDetails } from '../../contexts/OrderDetail';
 
 interface OptionProps {
     optionType: string
@@ -12,6 +14,8 @@ interface OptionProps {
 export default ({ optionType }: OptionProps): ReturnType<FunctionComponent> => {
     const [items, setItems] = useState([]);
     const [error, setError] = useState(false);
+    // @ts-ignore
+    const [orderDetails, updateItemCount] = useOrderDetails();
     
     useEffect(() => {
         axios.get(`http://localhost:3030/${optionType}`)
@@ -26,11 +30,17 @@ export default ({ optionType }: OptionProps): ReturnType<FunctionComponent> => {
     }
 
     const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption;
+    const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
     
     //@ts-ignore
-    const optionItems = items.map(item => <ItemComponent key={item.name} name={item.name} imagePath={item.imagePath} />);
+    const optionItems = items.map(item => <ItemComponent key={item.name} name={item.name} imagePath={item.imagePath} updateItemCount={(itemName, newItemCount) => updateItemCount(itemName, newItemCount, optionType)}/>);
 
     return (
-        <Row>{optionItems}</Row>
+        <>
+            <h2>{title}</h2>
+            <p>{pricePerItem[optionType]} each</p>
+            <p>{title} total: {orderDetails.totals[optionType]}</p>
+            <Row>{optionItems}</Row>
+        </>
     )
 }
